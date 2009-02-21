@@ -30,6 +30,8 @@
 
     <?php $this->widget('Calendar'); ?>
 
+    <?php $this->widget('Clock'); ?>
+
     <?php $this->widget('RecentPosts'); ?>
 
     <?php $this->widget('RecentComments'); ?>
