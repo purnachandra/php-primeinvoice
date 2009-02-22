@@ -1,4 +1,5 @@
 <?php
+  // @version $Id$
 class PostDate extends Portlet {
   public $cssClass='postdate';
   public $ct;

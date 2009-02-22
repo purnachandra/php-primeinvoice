@@ -1,5 +1,5 @@
 <?php
-
+  // @version $Id$
 class Calendar extends Portlet
 {
   public $title='Calendar';
