@@ -1,5 +1,5 @@
 <?php
-
+  // @version $Id$
 class Clock extends Portlet
 {
   public $title='Clock';

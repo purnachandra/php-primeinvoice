@@ -1,5 +1,5 @@
 <?php
-
+  // @version $Id$
 class Links extends Portlet
 {
   public $title='Links';

@@ -1,6 +1,7 @@
 <center>
 <ul class="Calendar">
 <?php
+   // @version $Id$
 // Set locale
 // uncomment following two lines if you are a Japanese...
 // $locale='ja_JP.utf8';

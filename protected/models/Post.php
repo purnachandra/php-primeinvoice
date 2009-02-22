@@ -1,5 +1,5 @@
 <?php
-
+  // @version $Id$
 class Post extends CActiveRecord
 {
 	const STATUS_DRAFT=0;

@@ -2,7 +2,7 @@
 #
 # My Markdown Parser Class
 #
-
+  // @version $Id$
 class MarkdownParserHighslide extends CMarkdownParser {
 
 	public function doImages($text) {

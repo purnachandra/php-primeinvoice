@@ -1,5 +1,5 @@
 <?php
-
+  // @version $Id$
 class RecentPosts extends Portlet
 {
   public $title='Recent Posts';
