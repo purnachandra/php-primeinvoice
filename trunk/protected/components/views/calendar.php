@@ -5,7 +5,7 @@
 // Set locale
 // uncomment following two lines if you are a Japanese...
 // $locale='ja_JP.utf8';
-// $setlocale = setlocale(LC_ALL,  $locale);
+// $setlocale = setlocale(LC_ALL, $locale);
 
 // load the algorithm of the calendar
 // uncomment following line if you are a Japanese...
@@ -20,17 +20,18 @@ Yii::app()->getClientScript()->registerCssFile($url);
 if (!empty($_GET['time'])) {
   $month = date('n', $_GET['time']);
   $year = date('Y', $_GET['time']);
-  if (!empty($_GET['pn']) && $_GET['pn'] == 'n') $month++;
-  if (!empty($_GET['pn']) && $_GET['pn'] == 'p') $month--;
+  if (!empty($_GET['pnc']) && $_GET['pnc'] == 'n') $month++;
+  if (!empty($_GET['pnc']) && $_GET['pnc'] == 'p') $month--;
  } else {
   $month = date('n');
   $year = date('Y');
  }
+
 $firstDay = mktime(0,0,0,$month,1,$year);
 $firstDayNextMonth = mktime(0,0,0,$month+1,1,$year);
 
-$pn = array('&lt;'=>CHtml::normalizeUrl(array('month/'.$firstDay.'/p')),
-	    '&gt;'=>CHtml::normalizeUrl(array('month/'.$firstDay.'/n')));
+$pnc = array('&lt;'=>CHtml::normalizeUrl(array('post/PostedInMonth', 'time'=>$firstDay, 'pnc'=>'p')),
+	     '&gt;'=>CHtml::normalizeUrl(array('post/PostedInMonth', 'time'=>$firstDay, 'pnc'=>'n')));
 
 // Today
 $days = array();
@@ -42,13 +43,13 @@ if ($firstDay <= time() && time() < $firstDayNextMonth) {
 // Make the links
 $post = new Post;
 foreach($post->findArtclePostedThisMonth() as $article):
-  $days[date('j', $article->createTime)]  = array(CHtml::normalizeUrl(array('date/'.$article->createTime)), 'linked-day');
+$days[date('j', $article->createTime)] = array(CHtml::normalizeUrl(array('post/PostedOnDate', 'time'=>$article->createTime)), 'linked-day');
 endforeach;
 
 // Execution
 if (isset($locale) && $locale == 'ja_JP.utf8') $len = 3;
 else $len = 2;
-echo generate_calendar($year, $month, $days, $len, CHtml::normalizeUrl(array('month/'.$firstDay.'/c')), 0, $pn);
+echo generate_calendar($year, $month, $days, $len, CHtml::normalizeUrl(array('post/PostedInMonth', 'time'=>$firstDay, 'pnc'=>'c')), 0, $pnc);
 ?>
 </ul>
 </center>
