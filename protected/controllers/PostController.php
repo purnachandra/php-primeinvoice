@@ -298,8 +298,8 @@ class PostController extends CController
           $criteria->condition.=' AND createTime > :time1 AND createTime < :time2';
           $month = date('n', $_GET['time']);
           $year = date('Y', $_GET['time']);
-          if ($_GET['pn'] == 'n') $month++;
-          if ($_GET['pn'] == 'p') $month--;
+          if ($_GET['pnc'] == 'n') $month++;
+          if ($_GET['pnc'] == 'p') $month--;
           $criteria->params[':time1']= $firstDay = mktime(0,0,0,$month,1,$year);
           $criteria->params[':time2']= mktime(0,0,0,$month+1,1,$year);
 

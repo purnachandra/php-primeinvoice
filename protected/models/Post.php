@@ -162,8 +162,8 @@ class Post extends CActiveRecord
           if (!empty($_GET['time'])) {
             $month = date('n', $_GET['time']);
             $year = date('Y', $_GET['time']);
-            if (!empty($_GET['pn']) && $_GET['pn'] == 'n') $month++;
-            if (!empty($_GET['pn']) && $_GET['pn'] == 'p') $month--;
+            if (!empty($_GET['pnc']) && $_GET['pnc'] == 'n') $month++;
+            if (!empty($_GET['pnc']) && $_GET['pnc'] == 'p') $month--;
           } else {
             $month = date('n');
             $year = date('Y');

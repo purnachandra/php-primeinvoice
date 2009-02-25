@@ -50,15 +50,15 @@ return array(
 			*/
 		),
 		'urlManager'=>array(
-			'urlFormat'=>'path',
+		    // 	'urlFormat'=>'path',
 			'rules'=>array(
 				'tag/<tag>'=>'post/list',
 				'posts'=>'post/list',
 				'post/<id:\d+>'=>'post/show',
 				'post/update/<id:\d+>'=>'post/update',
-				   'date/<time:\d+>'=>'post/PostedOnDate',
-				   'month/<time:\d+>/<pn:p|c|n>'=>'post/PostedInMonth',
-				       ),
+				'date/<time:\d+>'=>'post/PostedOnDate',
+				'month/<time:\d+>/<pnc:p|c|n>'=>'post/PostedInMonth',
+			),
 		),
 	),
 );

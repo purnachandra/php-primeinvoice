@@ -6,11 +6,6 @@ class Calendar extends Portlet
 
   public $st;
 
-	public function init()
-	{
-	  parent::init();
-	}
-
 	protected function renderContent()
 	{
 		$this->render('calendar');

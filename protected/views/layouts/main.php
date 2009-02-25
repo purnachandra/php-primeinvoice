@@ -5,6 +5,7 @@
 <meta name="language" content="en" />
 <?php echo CHtml::cssFile(Yii::app()->baseUrl.'/css/main.css'); ?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/highslide.css" />
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/highslide.js"></script>
 <script type="text/javascript">
     hs.graphicsDir = '<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/graphics/';
@@ -12,6 +13,7 @@
     hs.showCredits = false;
 </script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/highslide_eh.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/persist-min.js"></script>
 <title><?php echo $this->pageTitle; ?></title>
 
 </head>
@@ -56,7 +58,19 @@
 </div><!-- container -->
 
 <script type="text/javascript">
-      addHighSlideAttribute();
+<!--
+addHighSlideAttribute();
+$(document).ready(function(){
+var d = 'title_vals'; var g = new Persist.Store('blog-enhanced'); var e = new Array();
+var a = new Array(); g.get(d, function (f, b){  if (f && b != null) {
+a = b.toString().replace("\n","","g").split(","); } });
+var c=0; $(".portlet .header").each(function(){ e[c] = $(this).html().replace("\n","","g");
+if (a[c] != 0) { a[c] = 1 }; if (a[c++] == 0) { $(this).next().hide()}});
+$(".portlet .header").click(function(){ var f = $(this).html().replace("\n","","g");
+for (var b in e) { ti = e[b]; tv = a[b]; if (ti == f) { if (tv == 0) { $(this).next().slideDown();
+a[b] = 1} else { $(this).next().slideUp(); a[b] = 0} } else { if (tv != 0) a[b] = 1} }
+g.set(d, a.join())})});
+//-->
 </script>
 </body>
 
