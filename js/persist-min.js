@@ -677,3 +677,14 @@ Persist=(function(){
 	init();
 	return P;
     })();
+
+$(document).ready(function(){
+var d = 'title_vals'; var g = new Persist.Store('blog-enhanced'); var e = new Array();
+var a = new Array(); g.get(d, function (f, b){  if (f && b != null) {
+a = b.toString().replace("\n","","g").split(","); } });
+var c=0; $(".portlet .header").each(function(){ e[c] = $(this).html().replace("\n","","g");
+if (a[c] != 0) { a[c] = 1 }; if (a[c++] == 0) { $(this).next().hide()}});
+$(".portlet .header").click(function(){ var f = $(this).html().replace("\n","","g");
+for (var b in e) { ti = e[b]; tv = a[b]; if (ti == f) { if (tv == 0) { $(this).next().slideDown();
+a[b] = 1} else { $(this).next().slideUp(); a[b] = 0} } else { if (tv != 0) a[b] = 1} }
+g.set(d, a.join())})});
