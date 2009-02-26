@@ -13,7 +13,8 @@
     hs.showCredits = false;
 </script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/highslide_eh.js"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/persist-min.js"></script>
+<?php require_once(Yii::app()->basePath.'/../js/persist-min.php'); ?>
+
 <title><?php echo $this->pageTitle; ?></title>
 
 </head>
@@ -32,7 +33,7 @@
 
     <?php $this->widget('Calendar'); ?>
 
-    <?php $this->widget('Clock'); ?>
+<!--    <?php $this->widget('Clock'); ?> -->
 
     <?php $this->widget('RecentPosts'); ?>
 
@@ -51,9 +52,9 @@
   <br class="clearfloat" />
 
   <div id="footer">
-    <p><center><?php echo Yii::app()->params['copyrightInfo']; ?><br/>
+    <p><?php echo Yii::app()->params['copyrightInfo']; ?><br/>
     All Rights Reserved.<br/>
-    <?php echo Yii::powered(); echo Yii::getVersion(); ?></p><br><br></center>
+    <?php echo Yii::powered(); echo Yii::getVersion(); ?></p><br>
   </div><!-- footer -->
 </div><!-- container -->
 
