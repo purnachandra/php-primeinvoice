@@ -3,24 +3,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="language" content="en" />
-<?php echo CHtml::cssFile(Yii::app()->baseUrl.'/css/main.css'); ?>
-<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/highslide.css" />
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/highslide.js"></script>
-<script type="text/javascript">
-    hs.graphicsDir = '<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/graphics/';
-    hs.outlineType = 'rounded-white';
-    hs.showCredits = false;
-</script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/highslide/highslide_eh.js"></script>
-<?php require_once(Yii::app()->basePath.'/../js/persist-min.php'); ?>
 
 <title><?php echo $this->pageTitle; ?></title>
 
+<?php
+// javascript
+  $cs=Yii::app()->clientScript;
+//  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery-1.3.2.min.js', CClientScript::POS_HEAD);
+  $cs->registerCoreScript('jquery');
+  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.js', CClientScript::POS_HEAD);
+  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/highslide/highslide_eh.js', CClientScript::POS_HEAD);
+  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/persist.js', CClientScript::POS_HEAD);
+  $params = array(
+		'BASEURL'=>Yii::app()->request->baseUrl,
+                'HTTPHOST'=>$_SERVER['HTTP_HOST']
+		  );
+  $script = '    var PARAMS = eval('.CJavaScript::jsonEncode($params).');'."\n";
+  $script .= implode('',file(Yii::app()->basePath.'/../js/widget-oc.js'));
+  $cs->registerScript('widget-oc', $script, CClientScript::POS_READY);
+  $script = 'hs.graphicsDir = \''.Yii::app()->request->baseUrl.'/js/highslide/graphics/\';'."\n";
+  $script .= 'hs.outlineType = \'rounded-white\';'."\n";
+  $script .= 'hs.showCredits = false;';
+  $cs->registerScript('hislide-end', $script, CClientScript::POS_BEGIN);
+  $script = 'addHighSlideAttribute();';
+  $cs->registerScript('hislide-end', $script, CClientScript::POS_END);
+// css
+  $cs->registerCSSFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.css', CClientScript::POS_HEAD);
+  $cs->registerCSSFile(Yii::app()->request->baseUrl.'/css/main.css', CClientScript::POS_HEAD);
+?>
 </head>
 
 <body class="page">
-
 <div id="container">
   <div id="header">
     <h1><?php echo CHtml::link(CHtml::encode(Yii::app()->params['title']),Yii::app()->homeUrl); ?></h1>
@@ -32,7 +45,6 @@
     <?php $this->widget('UserMenu',array('visible'=>!Yii::app()->user->isGuest)); ?>
 
     <?php $this->widget('Calendar'); ?>
-
 
     <?php $this->widget('RecentPosts'); ?>
 
@@ -57,11 +69,6 @@
   </div><!-- footer -->
 </div><!-- container -->
 
-<script type="text/javascript">
-<!--
-addHighSlideAttribute();
-//-->
-</script>
 </body>
 
 </html>
