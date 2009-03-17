@@ -60,5 +60,11 @@ return array(
 				'month/<time:\d+>/<pnc:p|c|n>'=>'post/PostedInMonth',
 			),
 		),
-	),
+		'clientScript'=>array(
+				      'class'=>'application.components.ExtendedClientScript',
+				      'combineFiles'=>true,
+				      'compressCss'=>true,
+				      'compressJs'=>true,
+				      ),
+	    ),
 );
