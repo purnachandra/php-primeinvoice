@@ -19,7 +19,7 @@
                 'HTTPHOST'=>$_SERVER['HTTP_HOST']
 		  );
   $script = '    var PARAMS = eval('.CJavaScript::jsonEncode($params).');'."\n";
-  $script .= implode('',file(Yii::app()->basePath.'/../js/widget-oc.js'));
+  $script .= implode('',file(Yii::app()->basePath.'/../js/widget-oc.min.js'));
   $cs->registerScript('widget-oc', $script, CClientScript::POS_READY);
   $script = 'hs.graphicsDir = \''.Yii::app()->request->baseUrl.'/js/highslide/graphics/\';'."\n";
   $script .= 'hs.outlineType = \'rounded-white\';'."\n";

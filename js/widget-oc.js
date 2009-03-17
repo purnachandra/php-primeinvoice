@@ -3,8 +3,7 @@
 // Copyright (C) 2009 by mocapapa <mocapapa@g.pugpug.org>
 //
 //$(document).ready(function(){
-//    var hostroot = PARAMS['HTTPHOST']+'__'+PARAMS['BASEURL'].replace(///g,'_');
-    var hostroot = PARAMS['HTTPHOST']+'__'+PARAMS['BASEURL'];
+    var hostroot = PARAMS['HTTPHOST']+'__'+PARAMS['BASEURL'].replace(/\//g,'_');
     var key = hostroot+'__widget_title_vals';
     var store = new Persist.Store('blog-enhanced');
     var titles = new Array();
@@ -14,7 +13,7 @@
     store.get(key, function(ok, val) {
 	    if (ok && val != null) {
 		title_vals = val.toString().replace("\n","","g").split(",");
-		// $("#debug").html(Persist.type + ','+ key+',loaded,'+val);
+		// $("#debug").html('('+Persist.type + ')('+ key+')loaded('+val+')');
 	    }
 	});
 
@@ -66,7 +65,7 @@
 	    
 	    // save status
 	    store.set(key, title_vals.join());
-	    // $("#debug").html(Persist.type + ','+ key+',saved,'+title_vals.join());
+	    // $("#debug").html('('+Persist.type + ')('+ key+')saved('+val+')');
 	    
 	});
     //    });
