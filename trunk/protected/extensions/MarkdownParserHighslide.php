@@ -98,7 +98,12 @@ class MarkdownParserHighslide extends CMarkdownParser {
 
                 $alt_text = $this->encodeAttribute($alt_text);
                 $url = $this->encodeAttribute($url);
-                $size=getimagesize(Yii::app()->params['imageHomeAbs'].$url);
+
+                $file = Yii::app()->params['imageHomeAbs'].$url;
+                if (file_exists($file))
+                    $size=getimagesize($file);
+                else
+                    $size=array(100, 100);
                 $url = Yii::app()->request->baseUrl.DIRECTORY_SEPARATOR.Yii::app()->params['imageHome'].$url;
 
                 $whtext = '';

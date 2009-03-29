@@ -157,7 +157,7 @@ class Post extends CActiveRecord
          * Find articles posted in this month
          * @return array the artcles posted in this month
          */
-        public function findArtclePostedThisMonth()
+        public function findArticlePostedThisMonth()
         {
           if (!empty($_GET['time'])) {
             $month = date('n', $_GET['time']);
