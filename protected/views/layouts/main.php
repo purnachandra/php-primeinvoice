@@ -9,7 +9,6 @@
 <?php
 // javascript
   $cs=Yii::app()->clientScript;
-//  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery-1.3.2.min.js', CClientScript::POS_HEAD);
   $cs->registerCoreScript('jquery');
   $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.js', CClientScript::POS_HEAD);
   $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/highslide/highslide_eh.js', CClientScript::POS_HEAD);

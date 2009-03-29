@@ -42,7 +42,7 @@ if ($firstDay <= time() && time() < $firstDayNextMonth) {
 
 // Make the links
 $post = new Post;
-foreach($post->findArtclePostedThisMonth() as $article):
+foreach($post->findArticlePostedThisMonth() as $article):
 $days[date('j', $article->createTime)] = array(CHtml::normalizeUrl(array('post/PostedOnDate', 'time'=>$article->createTime)), 'linked-day');
 endforeach;
 
