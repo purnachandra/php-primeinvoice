@@ -27,8 +27,8 @@
   $script = 'addHighSlideAttribute();';
   $cs->registerScript('hislide-end', $script, CClientScript::POS_END);
 // css
-  $cs->registerCSSFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.css', CClientScript::POS_HEAD);
-  $cs->registerCSSFile(Yii::app()->request->baseUrl.'/css/main.css', CClientScript::POS_HEAD);
+  $cs->registerCSSFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.css');
+  $cs->registerCSSFile(Yii::app()->request->baseUrl.'/css/main.css');
 ?>
 </head>
 
