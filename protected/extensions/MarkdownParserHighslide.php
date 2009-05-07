@@ -104,7 +104,7 @@ class MarkdownParserHighslide extends CMarkdownParser {
                     $size=getimagesize($file);
                 else
                     $size=array(100, 100);
-                $url = Yii::app()->request->baseUrl.DIRECTORY_SEPARATOR.Yii::app()->params['imageHome'].$url;
+                $url = Yii::app()->request->baseUrl.'/'.Yii::app()->params['imageHome'].$url;
 
                 $whtext = '';
                 $bbw = Yii::app()->params['imageBoundingboxWidth'];
