@@ -45,6 +45,8 @@
 
     <?php $this->widget('Calendar'); ?>
 
+    <?php $this->widget('SiteSearch'); ?>
+
     <?php $this->widget('RecentPosts'); ?>
 
     <?php $this->widget('RecentComments'); ?>
