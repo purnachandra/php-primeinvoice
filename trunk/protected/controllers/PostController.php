@@ -167,38 +167,41 @@ class PostController extends CController
 		));
 	}
 
-	/**
-	 * Sitewide search.
-	 */
-        /**                                                                                                          
-         * Shows a particular post searched.                                                                         
+        /**
+         * Sitewide search.
+         * Shows a particular post searched.
          */
         public function actionSearch()
         {
-	        $search=new SiteSearchForm;
+	        $criteria=new CDbCriteria;
+		$criteria->condition='status='.Post::STATUS_PUBLISHED;
+		$criteria->order='createTime DESC';
+		$search=new SiteSearchForm;
+		
 		if(isset($_POST['SiteSearchForm'])) {
-		    $search->attributes=$_POST['SiteSearchForm'];
-
-		    $criteria=new CDbCriteria;
-		    $criteria->condition='status='.Post::STATUS_PUBLISHED;
-		    $criteria->condition.=' AND content like \'%'.$search->string.'%\'';
-		    $criteria->order='createTime DESC';
-		    $postCount=Post::model()->count($criteria);
-
-		    $pages=new CPagination($postCount);
-		    $pages->pageSize=Yii::app()->params['postsPerPage'];
-		    $pages->applyLimit($criteria);
-		    
-		    $posts=Post::model()->findAll($criteria);
-
-		    $this->render('list',array(
-					       'posts'=>$posts,
-					       'pages'=>$pages,
-					       'search'=>$search,
-					       ));
+		        $search->attributes=$_POST['SiteSearchForm'];
+			$_GET['searchString'] = $search->string;
+		} else {
+	 	        $search->string=$_GET['searchString'];
 		}
-        }
 
+		$criteria->condition .=' AND content LIKE :keyword';
+		$criteria->params=array(':keyword'=>'%'.$search->string.'%');
+		
+		$postCount=Post::model()->count($criteria);
+		$pages=new CPagination($postCount);
+		$pages->pageSize=Yii::app()->params['postsPerPage'];
+		$pages->applyLimit($criteria);
+		
+		$posts=Post::model()->findAll($criteria);
+		
+		$this->render('list',array(
+					   'posts'=>$posts,
+					   'pages'=>$pages,
+					   'search'=>$search,
+					   ));
+
+        }
 
 	/**
 	 * Manages all posts.
