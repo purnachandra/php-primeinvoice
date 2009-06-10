@@ -195,7 +195,7 @@ class PostController extends CController
 		
 		$posts=Post::model()->findAll($criteria);
 		
-		$this->render('list',array(
+		$this->render('found',array(
 					   'posts'=>$posts,
 					   'pages'=>$pages,
 					   'search'=>$search,
