@@ -1,13 +1,12 @@
 <?php
   /*
-   *
+   * Image model
    * $Id$
    *
    */
 class Image extends CFormModel
 {
   public $image;
-  // ... other attributes
  
   public function rules()
   {
