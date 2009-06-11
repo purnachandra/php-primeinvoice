@@ -27,7 +27,7 @@ $i = 0;
 
 <table class="dataGrid">
   <tr>
-    <th><?php echo 'Thumnail'; ?></th>
+    <th><?php echo 'Thumbnail'; ?></th>
     <th><?php echo 'File Name'; ?></th>
     <th><?php echo 'Create Date'; ?></th>
     <th><?php echo 'Delete'; ?></th>
