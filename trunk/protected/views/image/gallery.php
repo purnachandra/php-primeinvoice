@@ -22,6 +22,7 @@ asort($filelist, SORT_STRING);
 //$pages=new CPagination(count($filelist));
 //$pages->pageSize=Yii::app()->params['imagesPerPage'];
 //$pages->applyLimit($criteria);
+
 $i = 0;
 ?>
 
@@ -33,8 +34,28 @@ $i = 0;
     <th><?php echo 'Delete'; ?></th>
   </tr>
 <?php foreach($filelist as $file): ?>
+<?php
+// BB process
+if (file_exists($current.$file))
+  $size=getimagesize($current.$file);
+else
+  $size=array(100, 100);
+
+$bb = Yii::app()->params['imageThumbnailBoundingbox'];
+if ($size[0] > $bb && $size[1] <= $bb)
+  $whtext = 'width';
+else if ($size[0] <= $bb && $size[1] > $bb)
+  $whtext = 'height';
+else if ($size[0] > $bb && $size[1] > $bb)
+  if (1.0 <= $size[1]/$size[0])
+    $whtext = 'height';
+  else
+    $whtext = 'width';
+
+$url = Yii::app()->baseUrl.'/'.Yii::app()->params['imageHome'].$file;
+?>
   <tr class="<?php echo $i++%2?'even':'odd';?>">
-    <td><?php echo CHtml::image(Yii::app()->baseUrl.'/'.Yii::app()->params['imageHome'].$file, 'image', array('width'=>100)); ?></td>
+    <td><?php echo CHtml::link(CHtml::image($url, 'image', array($whtext=>$bb)), $url, array('class'=>'highslide')); ?></td>
     <td><?php echo CHtml::encode($file); ?></td>
     <td><?php echo date('F j, Y', filectime($current.$file)); ?></td>
     <td><?php echo CHtml::linkButton('Delete',array(
