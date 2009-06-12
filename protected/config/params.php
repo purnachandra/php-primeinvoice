@@ -17,4 +17,5 @@ return array(
 	'imageHomeAbs'=>dirname(__FILE__).'/../../images/',
 	'imageBoundingbox'=>'240',
 	'imageParams'=>'style="float:left;margin:5px;"',
+	'imageThumbnailBoundingBox'=>'120',
 );
