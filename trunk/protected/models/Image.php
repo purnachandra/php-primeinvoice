@@ -11,7 +11,9 @@ class Image extends CFormModel
   public function rules()
   {
     return array(
-		 array('image', 'file', 'types'=>'jpg, gif, png'),
+		 array('image', 'file', 'types'=>'jpg, gif, png',
+		       'maxSize'=>Yii::app()->params['MaxImageSize'],
+		       ),
 		 );
   }
 }

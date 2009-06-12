@@ -18,4 +18,5 @@ return array(
 	'imageBoundingbox'=>'240',
 	'imageParams'=>'style="float:left;margin:5px;"',
 	'imageThumbnailBoundingBox'=>'120',
+	'MaxImageSize'=>512*1024, // 512KByte
 );
