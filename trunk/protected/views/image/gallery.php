@@ -1,11 +1,13 @@
 <h2>Image Gallery</h2>
+<div class="form">
 <?php echo CHtml::beginForm('','post',array('enctype'=>'multipart/form-data')); ?>
+<?php echo CHtml::errorSummary($model); ?>
 <?php echo CHtml::activeFileField($model, 'image'); ?>
 <br>
 <?php echo CHtml::submitButton('Upload', array('name'=>'submitPost')); ?>
 <?php echo CHtml::endForm(); ?>
+</div><!-- form -->
 <br>
-
 <?php
 $current = Yii::app()->params['imageHomeAbs'];
 
@@ -68,3 +70,4 @@ $url = Yii::app()->baseUrl.'/'.Yii::app()->params['imageHome'].$file;
 
 <br/>
 <?php //$this->widget('CLinkPager',array('pages'=>$pages)); ?>
+<!-- $Id: $ -->
