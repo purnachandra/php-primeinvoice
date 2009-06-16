@@ -15,16 +15,21 @@ class ImageController extends CController {
     if(isset($_FILES['Image'])) {
       $model->image=CUploadedFile::getInstance($model,'image');
       $name = $model->image->name;
-      if (file_exists(Yii::app()->params['imageHomeAbs'].$name)) {
-	// already there
-	$v = 2;
-	preg_match('/(\w+)\.(\w+)/', $name, $match);
-	do {
-	  $name = $match[1].'('.$v++.').'.$match[2];
-	} while (file_exists(Yii::app()->params['imageHomeAbs'].$name));
+      if ($name != '') {
+	if (file_exists(Yii::app()->params['imageHomeAbs'].$name)) {
+	  // already there
+	  $v = 2;
+	  preg_match('/(\w+)\.(\w+)/', $name, $match);
+	  do {
+	    $name = $match[1].'('.$v++.').'.$match[2];
+	  } while (file_exists(Yii::app()->params['imageHomeAbs'].$name));
+	}
+	if ($model->validate())
+	  $model->image->saveAs(Yii::app()->params['imageHomeAbs'].$name);
+      } else {
+	// blank validation
+	$model->validate();
       }
-      if ($model->validate())
-	$model->image->saveAs(Yii::app()->params['imageHomeAbs'].$name);
     }
     $this->render('gallery', array('model'=>$model));
   }
