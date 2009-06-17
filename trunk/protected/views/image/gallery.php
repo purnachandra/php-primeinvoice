@@ -25,6 +25,9 @@ asort($filelist, SORT_STRING);
 //$pages->pageSize=Yii::app()->params['imagesPerPage'];
 //$pages->applyLimit($criteria);
 
+$cs=Yii::app()->getClientScript();
+$cs->registerCoreScript('jquery');
+
 $i = 0;
 ?>
 
@@ -55,10 +58,16 @@ else if ($size[0] > $bb && $size[1] > $bb)
     $whtext = 'width';
 
 $url = Yii::app()->baseUrl.'/'.Yii::app()->params['imageHome'].$file;
+
+// Copy&Paste preparation
+$id = CHtml::ID_PREFIX.CHtml::$count;
+$handler = '$.clipboardReady(function(){ $.clipboard( "*[]('.$file.')" ); return false; }, { swfpath: PARAMS.BASEURL+"/js/jquery.clipboard-2.0.1/jquery.clipboard.swf" });';
+$cs->registerScript('Yii.CHtml.#'.$id,"jQuery('#$id').click(function(){ $handler });");
+CHtml::$count++;
 ?>
   <tr class="<?php echo $i++%2?'even':'odd';?>">
     <td><?php echo CHtml::link(CHtml::image($url, 'image', array($whtext=>$bb)), $url, array('class'=>'highslide')); ?></td>
-    <td><?php echo CHtml::encode($file); ?></td>
+    <td><?php echo CHtml::tag('a', array('id'=>$id), CHtml::encode($file)); ?>
     <td><?php echo date('F j, Y', filectime($current.$file)); ?></td>
     <td><?php echo CHtml::linkButton('Delete',array(
 						    'submit'=>array('image/delete','name'=>$file),
