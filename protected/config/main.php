@@ -62,9 +62,9 @@ return array(
 		),
 		'clientScript'=>array(
 				      'class'=>'application.components.ExtendedClientScript',
-				      'combineFiles'=>true,
-				      'compressCss'=>true,
-				      'compressJs'=>true,
+				      'combineFiles'=>false,
+				      'compressCss'=>false,
+				      'compressJs'=>false,
 				      ),
 	    ),
 );
