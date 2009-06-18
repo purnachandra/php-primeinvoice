@@ -31,7 +31,28 @@ class ImageController extends CController {
 	$model->validate();
       }
     }
-    $this->render('gallery', array('model'=>$model));
+    // directory search                                                          
+    $current = Yii::app()->params['imageHomeAbs'];
+
+    $filelist = array();
+    $d = dir($current);
+    while($tmp = $d->read()) {
+      if ($tmp != '.' && $tmp != '..' && $tmp != '.svn') {
+        array_push($filelist, $tmp);
+      }
+    }
+    asort($filelist, SORT_STRING);
+
+    $cs=Yii::app()->getClientScript();
+    $cs->registerCoreScript('jquery');
+
+    $this->render('gallery', array(
+                                   'model'=>$model,
+                                   'filelist'=>$filelist,
+                                   'current'=>$current,
+                                   'cs'=>$cs,
+                                   ));
+
   }
 
   public function actionDelete() {

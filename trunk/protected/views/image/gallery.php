@@ -9,24 +9,11 @@
 </div><!-- form -->
 <br>
 <?php
-$current = Yii::app()->params['imageHomeAbs'];
-
-$filelist = array();
-$d = dir($current);
-while($tmp = $d->read()) {
-  if ($tmp != '.' && $tmp != '..' && $tmp != '.svn') {
-    array_push($filelist, $tmp);
-  }
- }
-asort($filelist, SORT_STRING);
 
 //$criteria=new CDbCriteria;
 //$pages=new CPagination(count($filelist));
 //$pages->pageSize=Yii::app()->params['imagesPerPage'];
 //$pages->applyLimit($criteria);
-
-$cs=Yii::app()->getClientScript();
-$cs->registerCoreScript('jquery');
 
 $i = 0;
 ?>
