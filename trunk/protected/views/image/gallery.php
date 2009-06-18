@@ -66,4 +66,4 @@ CHtml::$count++;
 
 <br/>
 <?php //$this->widget('CLinkPager',array('pages'=>$pages)); ?>
-<!-- $Id: $ -->
+<!-- $Id$ -->

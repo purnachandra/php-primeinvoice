@@ -2,7 +2,6 @@
   /*
    * Image model
    * $Id$
-   *
    */
 class Image extends CFormModel
 {
