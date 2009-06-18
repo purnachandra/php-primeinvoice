@@ -1,7 +1,7 @@
 <?php
 /*
  * Image Gallery
- * $Id: $
+ * $Id$
  */
 
 class ImageController extends CController {
