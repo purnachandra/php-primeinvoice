@@ -20,4 +20,6 @@ return array(
 	'imageThumbnailBoundingBox'=>'120',
 	'maxImageSize'=>512*1024, // 512KByte
 	'profileImageBoundingbox'=>'60',
+	// locale of calendar widget
+	//'calendarLocale'=>'Japan',
 );
