@@ -22,7 +22,6 @@
   $cs->registerScript('widget-oc1', $script, CClientScript::POS_BEGIN);
   $script = implode('',file(Yii::app()->basePath.'/../js/widget-oc.min.js'));
   $cs->registerScript('widget-oc2', $script, CClientScript::POS_READY);
-//  $script = 'hs.graphicsDir = \''.Yii::app()->request->baseUrl.'/js/highslide/graphics/\';'."\n";
   $script = 'hs.graphicsDir = PARAMS.BASEURL+\'/js/highslide/graphics/\';'."\n";
   $script .= 'hs.outlineType = \'rounded-white\';'."\n";
   $script .= 'hs.showCredits = false;';
@@ -47,6 +46,8 @@
     <?php $this->widget('UserMenu',array('visible'=>!Yii::app()->user->isGuest)); ?>
 
     <?php $this->widget('Calendar'); ?>
+
+    <?php $this->widget('MonthlyArchives'); ?>
 
     <?php $this->widget('SiteSearch'); ?>
 
