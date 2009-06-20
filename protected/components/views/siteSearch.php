@@ -1,4 +1,4 @@
-<?php $url = $this->getController()->createUrl('search'); ?>
+<?php $url = $this->getController()->createUrl('post/search'); ?>
 <?php echo CHtml::beginForm($url); ?>
 <div class="row">
 <?php echo CHtml::activeTextField($form,'string') ?>
