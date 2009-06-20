@@ -10,7 +10,7 @@ class MonthlyArchives extends Portlet
     $posts = Post::model()->findRecentPosts(PHP_INT_MAX);
 
     foreach ($posts as $post) {
-      $ym = date('M, Y', $post->createTime);
+      $ym = date('M Y', $post->createTime);
       if (!isset($yearmonth[$ym])) {
 	$yearmonth[$ym] = 1;
       } else {
