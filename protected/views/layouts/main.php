@@ -18,14 +18,24 @@
 		'BASEURL'=>Yii::app()->request->baseUrl,
                 'HTTPHOST'=>$_SERVER['HTTP_HOST']
 		  );
+<<<<<<< .mine
+  $script = 'var PARAMS = eval('.CJavaScript::jsonEncode($params).');';
+
+  $cs->registerScript('widget-oc1', $script, CClientScript::POS_BEGIN);
+  $script = implode('',file(Yii::app()->basePath.'/../js/widget-oc.min.js'));
+  $cs->registerScript('widget-oc2', $script, CClientScript::POS_READY);
+  $script = 'hs.graphicsDir = PARAMS.BASEURL+\'/js/highslide/graphics/\';'."\n";
+
+=======
   $script = 'var PARAMS = eval('.CJavaScript::jsonEncode($params).');';
   $cs->registerScript('widget-oc1', $script, CClientScript::POS_BEGIN);
   $script = implode('',file(Yii::app()->basePath.'/../js/widget-oc.min.js'));
   $cs->registerScript('widget-oc2', $script, CClientScript::POS_READY);
   $script = 'hs.graphicsDir = PARAMS.BASEURL+\'/js/highslide/graphics/\';'."\n";
+>>>>>>> .r42
   $script .= 'hs.outlineType = \'rounded-white\';'."\n";
   $script .= 'hs.showCredits = false;';
-  $cs->registerScript('hislide-end', $script, CClientScript::POS_BEGIN);
+  $cs->registerScript('hislide-middle', $script, CClientScript::POS_BEGIN);
   $script = 'addHighSlideAttribute();';
   $cs->registerScript('hislide-end', $script, CClientScript::POS_END);
 // css
@@ -37,7 +47,7 @@
 <body class="page">
 <div id="container">
   <div id="header">
-    <h1><?php echo CHtml::link(CHtml::encode(Yii::app()->params['title']),Yii::app()->homeUrl); ?></h1>
+    <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl.'/images/moca-colon.jpg','moca-colon',array('border'=>0)), Yii::app()->homeUrl); ?>
   </div><!-- header -->
 
   <div id="sidebar">
@@ -68,12 +78,14 @@
   <br class="clearfloat" />
 
   <div id="footer">
-    <p><?php echo Yii::app()->params['copyrightInfo']; ?><br/>
+   <center>
+   <p><?php echo Yii::app()->params['copyrightInfo']; ?><br/>
     All Rights Reserved.<br/>
-    <?php echo Yii::powered(); echo Yii::getVersion(); ?></p><br>
+   <?php echo Yii::powered(); echo Yii::getVersion()."-r".EyiiVersion::getVersion(); ?></p><br>
   </div><!-- footer -->
-</div><!-- container -->
+  </center>
 
+</div><!-- container -->
 </body>
 
 </html>
