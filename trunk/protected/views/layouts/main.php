@@ -25,7 +25,7 @@
   $script = 'hs.graphicsDir = PARAMS.BASEURL+\'/js/highslide/graphics/\';'."\n";
   $script .= 'hs.outlineType = \'rounded-white\';'."\n";
   $script .= 'hs.showCredits = false;';
-  $cs->registerScript('hislide-end', $script, CClientScript::POS_BEGIN);
+  $cs->registerScript('hislide-middle', $script, CClientScript::POS_BEGIN);
   $script = 'addHighSlideAttribute();';
   $cs->registerScript('hislide-end', $script, CClientScript::POS_END);
 // css
