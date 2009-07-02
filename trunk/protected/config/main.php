@@ -63,10 +63,18 @@ return array(
 		'clientScript'=>array(
 				      /*
 				      'class'=>'application.components.ExtendedClientScript',
-				      'combineFiles'=>true,
-				      'compressCss'=>true,
-				      'compressJs'=>true,
+				      'combineFiles'=>false,
+				      'compressCss'=>false,
+				      'compressJs'=>false,
 				      */
 				      ),
-	    ),
-);
+
+		'cache'=>array(
+			       'class'=>'system.caching.CMemCache',
+			       'servers'=>array(
+						array('host'=>'localhost', 'port'=>11211, 'weight'=>60),
+						),
+			       ),
+		
+			    ),
+ );
