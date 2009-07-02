@@ -155,7 +155,7 @@ class Post extends CActiveRecord
 
         /**
          * Find articles posted in this month
-         * @return array the artcles posted in this month
+         * @return array the articles posted in this month
          */
         public function findArticlePostedThisMonth()
         {
