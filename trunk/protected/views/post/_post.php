@@ -33,6 +33,6 @@
 	   'confirm'=>"Are you sure to delete this post?",
     )); ?> |
     <?php endif; ?>
-    Last updated on <?php echo date('F j, Y',$post->createTime); ?>
+    Last updated on <?php echo date('F j, Y',$post->updateTime); ?>
   </div>
 </div><!-- post -->
