@@ -3,7 +3,7 @@
     <table>
       <tr>
         <td>
-          <?php $c = 8 - strlen(date('F', $post->createTime)); $p = str_repeat('\&\n\b\s\p\;', $c); ?>
+          <?php $c = 9 - strlen(date('F', $post->createTime)); $p = str_repeat('\&\n\b\s\p\;', $c); ?>
           <?php $this->widget('PostDate', array('ct'=>date($p.'F'.$p.'<\b\r>j', $post->createTime))); ?>
         </td>
         <td>&nbsp;<?php echo CHtml::link(CHtml::encode($post->title),array('post/show','id'=>$post->id)); ?>
