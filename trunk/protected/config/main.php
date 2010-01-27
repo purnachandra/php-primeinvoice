@@ -50,7 +50,7 @@ return array(
 			*/
 		),
 		'urlManager'=>array(
-			 'urlFormat'=>'path',
+			// 'urlFormat'=>'path',
 			'rules'=>array(
 				'tag/<tag>'=>'post/list',
 				'posts'=>'post/list',
@@ -58,7 +58,7 @@ return array(
 				'post/update/<id:\d+>'=>'post/update',
 				'date/<time:\d+>'=>'post/PostedOnDate',
 				'month/<time:\d+>/<pnc:p|c|n>'=>'post/PostedInMonth',
-				'rss.xml'=>'post/feed',
+				'/rss.xml'=>'post/feed',
 			),
 		),
 		'clientScript'=>array(
