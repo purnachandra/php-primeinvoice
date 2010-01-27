@@ -38,7 +38,7 @@
 <div id="container">
   <div id="header">
     <H1><?php echo CHtml::link(CHtml::encode(Yii::app()->params['title']),Yii::app()->homeUrl); ?>
-<div id="rss"><?php echo CHtml::link(CHtml::image(CHtml::normalizeUrl('images/feed.gif')),Yii::app()->createUrl('rss.xml')); ?></div>
+<div id="rss"><?php echo CHtml::link(CHtml::image(CHtml::normalizeUrl('systemImages/feed.gif')),$this->createUrl('/post/feed')); ?></div>
     </H1>
   </div><!-- header -->
 
