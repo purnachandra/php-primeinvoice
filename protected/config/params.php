@@ -15,11 +15,11 @@ return array(
 	// configurations for highslide extension
 	'imageHome'=>'images/',
 	'imageHomeAbs'=>dirname(__FILE__).'/../../images/',
-	'imageBoundingbox'=>'240',
+	'imageBoundingBox'=>'240',
 	'imageParams'=>'style="float:left;margin:5px;"',
 	'imageThumbnailBoundingBox'=>'120',
 	'maxImageSize'=>512*1024, // 512KByte
-	'profileImageBoundingbox'=>'60',
+	'profileImageBoundingBox'=>'60',
 	// locale of calendar widget
 	//'calendarLocale'=>'Japan',
 	'postsPerFeedCount'=>20,
