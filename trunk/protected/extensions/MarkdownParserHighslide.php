@@ -107,11 +107,11 @@ class MarkdownParserHighslide extends CMarkdownParser {
                 $url = Yii::app()->request->baseUrl.'/'.Yii::app()->params['imageHome'].$url;
 
                 $whtext = '';
-                $bbw = Yii::app()->params['imageBoundingboxWidth'];
-                $bbh = Yii::app()->params['imageBoundingboxHeight'];
+                $bbw = Yii::app()->params['imageBoundingBoxWidth'];
+                $bbh = Yii::app()->params['imageBoundingBoxHeight'];
 
-                if (Yii::app()->params['imageBoundingbox'] != '') {
-                      $bbw = $bbh = Yii::app()->params['imageBoundingbox'];
+                if (Yii::app()->params['imageBoundingBox'] != '') {
+                      $bbw = $bbh = Yii::app()->params['imageBoundingBox'];
                 }
 
                 if ($bbw != '' && $bbh == '') {
