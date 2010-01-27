@@ -37,7 +37,9 @@
 <body class="page">
 <div id="container">
   <div id="header">
-    <h1><?php echo CHtml::link(CHtml::encode(Yii::app()->params['title']),Yii::app()->homeUrl); ?></h1>
+    <H1><?php echo CHtml::link(CHtml::encode(Yii::app()->params['title']),Yii::app()->homeUrl); ?>
+<div id="rss"><?php echo CHtml::link(CHtml::image(CHtml::normalizeUrl('images/feed.gif')),Yii::app()->createUrl('rss.xml')); ?></div>
+    </H1>
   </div><!-- header -->
 
   <div id="sidebar">

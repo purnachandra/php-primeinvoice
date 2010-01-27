@@ -49,6 +49,18 @@ pre
 {
 	margin: 0;
 	padding: 10px 0;
+	position: relative;
+}
+
+#rss
+{
+	position: absolute;
+	top: 14px;
+	right: 10px;
+}
+#rss img
+{
+	border: 0px;
 }
 
 .page #header a

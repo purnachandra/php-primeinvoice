@@ -22,4 +22,5 @@ return array(
 	'profileImageBoundingbox'=>'60',
 	// locale of calendar widget
 	//'calendarLocale'=>'Japan',
+	'postsPerFeedCount'=>20,
 );
