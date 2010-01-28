@@ -50,7 +50,7 @@ return array(
 			*/
 		),
 		'urlManager'=>array(
-			'showScriptName'=>false,
+			'showScriptName'=>false, // enable this (false) when .htaccess takes effect on the host
 			'urlFormat'=>'path',
 			'rules'=>array(
 				'tag/<tag>'=>'post/list',
