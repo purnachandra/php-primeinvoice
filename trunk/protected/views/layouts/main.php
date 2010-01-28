@@ -21,7 +21,7 @@ Yii::app()->highslide->init();
 <div id="container">
   <div id="header">
     <H1><?php echo CHtml::link(CHtml::encode(Yii::app()->params['title']),Yii::app()->homeUrl); ?>
-      <div id="rss"><?php echo CHtml::link(CHtml::image($baseUrl.'/systemImages/feed.gif'),$baseUrl.'/rss.xml'); ?></div>
+      <div id="rss"><?php echo CHtml::link(CHtml::image($baseUrl.'/systemImages/feed.gif'),array('post/feed')); ?></div>
     </H1>
   </div><!-- header -->
 
