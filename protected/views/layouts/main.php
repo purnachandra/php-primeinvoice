@@ -9,13 +9,14 @@
 <?php
 // javascript
   $cs=Yii::app()->clientScript;
+  $baseUrl=Yii::app()->request->baseUrl;
   $cs->registerCoreScript('jquery');
-  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.js', CClientScript::POS_HEAD);
-  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/highslide/highslide_eh.js', CClientScript::POS_HEAD);
-  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/persist.js', CClientScript::POS_HEAD);
-  $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.clipboard-2.0.1/jquery.clipboard.js', CClientScript::POS_HEAD);
+  $cs->registerScriptFile($baseUrl.'/js/highslide/highslide.js', CClientScript::POS_HEAD);
+  $cs->registerScriptFile($baseUrl.'/js/highslide/highslide_eh.js', CClientScript::POS_HEAD);
+  $cs->registerScriptFile($baseUrl.'/js/persist.js', CClientScript::POS_HEAD);
+  $cs->registerScriptFile($baseUrl.'/js/jquery.clipboard-2.0.1/jquery.clipboard.js', CClientScript::POS_HEAD);
   $params = array(
-		'BASEURL'=>Yii::app()->request->baseUrl,
+		'BASEURL'=>$baseUrl,
                 'HTTPHOST'=>$_SERVER['HTTP_HOST']
 		  );
   $script = 'var PARAMS = eval('.CJavaScript::jsonEncode($params).');';
@@ -29,8 +30,8 @@
   $script = 'addHighSlideAttribute();';
   $cs->registerScript('hislide-end', $script, CClientScript::POS_END);
 // css
-  $cs->registerCSSFile(Yii::app()->request->baseUrl.'/js/highslide/highslide.css');
-  $cs->registerCSSFile(Yii::app()->request->baseUrl.'/css/main.css');
+  $cs->registerCSSFile($baseUrl.'/js/highslide/highslide.css');
+  $cs->registerCSSFile($baseUrl.'/css/main.css');
 ?>
 </head>
 
@@ -38,7 +39,7 @@
 <div id="container">
   <div id="header">
     <H1><?php echo CHtml::link(CHtml::encode(Yii::app()->params['title']),Yii::app()->homeUrl); ?>
-<div id="rss"><?php echo CHtml::link(CHtml::image(CHtml::normalizeUrl('systemImages/feed.gif')),$this->createUrl('/post/feed')); ?></div>
+      <div id="rss"><?php echo CHtml::link(CHtml::image($baseUrl.'/systemImages/feed.gif'),$baseUrl.'/rss.xml'); ?></div>
     </H1>
   </div><!-- header -->
 
