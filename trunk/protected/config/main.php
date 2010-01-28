@@ -62,6 +62,14 @@ return array(
 				'rss.xml'=>'post/feed',
 			),
 		),
+                'widgetCollapse'=>array(
+			'class'=>'WidgetCollapse',
+			'enable'=>true,
+		),
+                'highslide'=>array(
+			'class'=>'Highslide',
+			'enable'=>true,
+		),
 		'clientScript'=>array(
 				      /*
 				      'class'=>'application.components.ExtendedClientScript',
@@ -69,6 +77,6 @@ return array(
 				      'compressCss'=>true,
 				      'compressJs'=>true,
 				      */
-				      ),
-	    ),
+		),
+	),
 );
