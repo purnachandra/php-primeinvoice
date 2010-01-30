@@ -184,6 +184,12 @@ pre
 	font-weight: bold;
 }
 
+.form .row input[type=text],
+.form .row textarea
+{
+	width: 100%;    
+}
+
 .form .hint
 {
 	margin: 0;
