@@ -255,7 +255,7 @@ class PostController extends CController
 		if($this->_post===null)
 		{
 			if($id!==null || isset($_GET['id']))
-				$this->_post=Post::model()->findbyPk($id!==null ? $id : $_GET['id']);
+				$this->_post=Post::model()->findByPk($id!==null ? $id : $_GET['id']);
 			if($this->_post===null || Yii::app()->user->isGuest && $this->_post->status!=Post::STATUS_PUBLISHED)
 				throw new CHttpException(500,'The requested post does not exist.');
 		}
