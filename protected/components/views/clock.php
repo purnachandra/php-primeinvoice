@@ -1,17 +1,21 @@
 <center>
 <!-- $Id$ -->
+<?php
+  $clockOffsetX = 40;
+  $clockOffsetY = 1;
+?>
 <div style="position: relative;">
- <img src="systemImages/clock.png">
-  <div class="hourHand" style="width: 104px; height: 104px; background-image: url(systemImages/hands.png); background-repeat: no-repeat; top: 0px; left:40px; position: absolute;"></div>
-  <div class="minuteHand" style="width: 104px; height: 104px; background-image: url(systemImages/hands.png); background-repeat: no-repeat; top: 0px; left:40px; position: absolute;"></div>
-  <div class="secondHand" style="width: 104px; height: 104px; background-image: url(systemImages/hands.png); background-repeat: no-repeat; top: 0px; left:40px; position: absolute;"></div>
+  <img src="<?php echo Yii::app()->request->baseUrl;?>/systemImages/clock.png">
+    <div class="hourHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
+    <div class="minuteHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
+    <div class="secondHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
 </div>
 <script type="text/javascript">
    /*<![CDATA[*/
    $(document).ready(function() {
        setInterval(function(){
            var currentTime = new Date();
-           var h = currentTime.getHours();
+           var h = currentTime.getHours()%12;
            var m = currentTime.getMinutes();
            var s = currentTime.getSeconds();
            animation(5*h+m/12, m, s);
