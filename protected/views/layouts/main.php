@@ -31,6 +31,8 @@ Yii::app()->highslide->init();
 
     <?php $this->widget('UserMenu',array('visible'=>!Yii::app()->user->isGuest)); ?>
 
+    <?php $this->widget('Clock'); ?>
+
     <?php $this->widget('Calendar'); ?>
 
     <?php $this->widget('MonthlyArchives'); ?>
