@@ -1,5 +1,5 @@
 <center>
-<!-- $Id$ -->
+<!-- $Id: clock.php 72 2010-02-07 01:20:18Z mocapapa@g.pugpug.org $ -->
 <?php
   $clockOffsetX = 40;
   $clockOffsetY = 1;
