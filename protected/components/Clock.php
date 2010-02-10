@@ -6,6 +6,7 @@ class Clock extends Portlet
 
   protected function renderContent()
   {
-    $this->render('analog-clock');
+    //    $this->render('digital-clock');
+     $this->render('analog-clock');
   }
 }

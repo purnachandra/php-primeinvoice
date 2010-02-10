@@ -5,10 +5,10 @@
   $clockOffsetY = 1;
 ?>
 <div style="position: relative;">
-  <img src="<?php echo Yii::app()->request->baseUrl;?>/systemImages/clock.png">
-    <div class="hourHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
-    <div class="minuteHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
-    <div class="secondHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
+  <img src="<?php echo Yii::app()->request->baseUrl;?>/systemImages/analog-clock-base.png">
+    <div class="hourHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/analog-clock-hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
+    <div class="minuteHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/analog-clock-hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
+    <div class="secondHand" style="width:104px;height:104px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/analog-clock-hands.png);background-repeat:no-repeat;top:<?php echo $clockOffsetY;?>px;left:<?php echo $clockOffsetX;?>px;position:absolute;"></div>
 </div>
 <script type="text/javascript">
    /*<![CDATA[*/
