@@ -11,6 +11,8 @@
 // css
 $baseUrl=Yii::app()->request->baseUrl;
 Yii::app()->clientScript->registerCSSFile($baseUrl.'/css/main.css');
+Yii::app()->clientScript->registerScriptFile($baseUrl.'/js/jquery.corners.js', CClientScript::POS_HEAD);
+Yii::app()->clientScript->registerScript('roundCorners', '$(".portlet,.postdate").corners("7px");$(".portlet .content").corners("5px bottom");', CClientScript::POS_READY);
 
 // initialize two application components
 Yii::app()->widgetCollapse->init();
