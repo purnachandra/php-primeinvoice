@@ -383,3 +383,11 @@ table.dataGrid tr.odd
       margin-bottom:15px;
       background-color:#EEE;
 }
+
+blockquote
+{
+	border: 1px dashed;
+	margin: 20px 10px;
+	padding: 0em 1em;
+	width: auto;
+}
