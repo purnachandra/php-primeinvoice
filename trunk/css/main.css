@@ -282,6 +282,10 @@ pre
 	color: yellow;
 }
 
+.post .content
+{
+	margin: 0.8em 0 1.2em;
+}
 .comment
 {
 	-moz-border-radius:7px;
@@ -377,19 +381,23 @@ table.dataGrid tr.odd
       font-size:13pt;
       margin: 0;
       padding: 3px;
-      margin-bottom:15px;
       background-color:#EEE;
+}
+
+.postdate .content
+{
+	margin: 0;
 }
 
 blockquote
 {
 	border: 1px dashed;
-	margin: 1em 1em;
-	padding: 0em 1em;
+	margin: 1em;
+	padding: 0.7em 1em;
 	width: auto;
 }
 
 p
 {
-	margin: 0.5em 0em;
+	margin: 0em;
 }
