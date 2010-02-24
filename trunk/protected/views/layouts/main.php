@@ -12,7 +12,7 @@
 $baseUrl=Yii::app()->request->baseUrl;
 Yii::app()->clientScript->registerCSSFile($baseUrl.'/css/main.css');
 Yii::app()->clientScript->registerScriptFile($baseUrl.'/js/jquery.corners.js', CClientScript::POS_HEAD);
-Yii::app()->clientScript->registerScript('roundCorners', '$(".portlet,.postdate").corners("7px");$(".portlet .content").corners("5px bottom");', CClientScript::POS_READY);
+Yii::app()->clientScript->registerScript('roundCorners', '$(".portlet,.postdate,.post .nav,.comment,.form").corners("7px");$(".portlet .content").corners("5px bottom");', CClientScript::POS_READY);
 
 // initialize two application components
 Yii::app()->widgetCollapse->init();
@@ -24,7 +24,7 @@ Yii::app()->highslide->init();
 <div id="container">
   <div id="header">
     <H1><?php echo CHtml::link(CHtml::encode(Yii::app()->params['title']),Yii::app()->homeUrl); ?>
-      <div id="rss"><?php echo CHtml::link(CHtml::image($baseUrl.'/systemImages/feed.gif'),array('post/feed')); ?></div>
+    <div id="rss"><?php echo CHtml::link(CHtml::image($baseUrl.'/systemImages/feed.gif'),array('post/feed')); ?></div>
     </H1>
   </div><!-- header -->
 
@@ -57,11 +57,18 @@ Yii::app()->highslide->init();
 
   <br class="clearfloat" />
 
-  <div id="footer">
+  <div id="footer" style="position: relative;">
     <p><?php echo Yii::app()->params['copyrightInfo']; ?><br/>
     All Rights Reserved.<br/>
     <?php echo Yii::powered(); echo Yii::getVersion()."&nbsp;(r".EyiiVersion::getVersion().")"; ?>
     <?php print(sprintf(", Executed in %.2f[msec]\n", Yii::app()->timer->getTimer())); ?></p><br/>
+    <div class="ants" style="width:39px;height:32px;background-image:url(<?php echo Yii::app()->request->baseUrl;?>/systemImages/ants.png);background-repeat:no-repeat;position:absolute;"></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+// ants animation
+$(document).ready(function(){var c;var d=0;var e=0;var f=724;var g=13;var x=f;var y=g;var h=4;var i=h;animation();function animation(){var a;var b;if(e==0){$('.ants').css('background-position','0px 0px');b=y-2}else{$('.ants').css('background-position','0px -32px');b=y+2}a=x-4;$('.ants').css('left',a+'px');$('.ants').css('top',b+'px');if(--i==-1){if(e==0)e=1;else e=0;i=h}x=a;y=b;if(x<30){x=f;clearInterval(c);d=0}}$('.ants').click(function(){if(d==0){c=setInterval(function(){animation()},50);d=1}else{clearInterval(c);d=0}})});
+/*]]>*/
+</script>
   </div><!-- footer -->
 </div><!-- container -->
 
