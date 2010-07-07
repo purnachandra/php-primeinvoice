@@ -1,11 +1,11 @@
 body
 {
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #666;
+	background: url("/demos/yii-blogdemo-enhanced/systemImages/body-bg.jpg") repeat-y scroll 50% 0 #cccccc;
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	color: #555;
+	color: #333333;
 }
 
 a, a:visited
